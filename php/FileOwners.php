@@ -1,0 +1,22 @@
+<?php
+
+function groupByOwners(array $files) : array
+{
+    $result = [];
+
+    foreach ($files as $file => $group) {
+        if (!array_key_exists($group, $result)) {
+            $result[$group] = [];
+        }
+        $result[$group][] = $file;
+    }
+
+    return $result;
+}
+
+$files = array(
+    "Input.txt" => "Randy",
+    "Code.py" => "Stan",
+    "Output.txt" => "Randy"
+);
+var_dump(groupByOwners($files));
