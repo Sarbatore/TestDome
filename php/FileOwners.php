@@ -5,7 +5,7 @@ function groupByOwners(array $files) : array
     $result = [];
 
     foreach ($files as $file => $group) {
-        if (!array_key_exists($group, $result)) {
+        if (!isset($result[$group])) {
             $result[$group] = [];
         }
         $result[$group][] = $file;
